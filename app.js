@@ -1,6 +1,7 @@
 (function () {
     const pageName = location.pathname.split(/[\\/]/).pop() || "dashboard.html";
 
+    fitDesktopViewportOnPhones();
     injectGeneratorLink();
     seedLocalTables();
     setTimeout(() => {
@@ -15,6 +16,19 @@
     wireLocalFilters();
     wireMobileDesktopSidebar();
     fillLocalCreateForm();
+
+    function fitDesktopViewportOnPhones() {
+        if (!window.matchMedia("(max-width: 991px)").matches) {
+            return;
+        }
+
+        const viewport = document.querySelector('meta[name="viewport"]');
+        if (viewport) {
+            viewport.setAttribute("content", "width=1200, initial-scale=0.32, minimum-scale=0.25, maximum-scale=1.2, user-scalable=yes");
+        }
+
+        document.documentElement.classList.add("desktop-phone-view");
+    }
 
     document.querySelectorAll('a[href="#"], a[href="javascript:;"]').forEach((link) => {
         if (link.classList.contains("logout_btn")) {
@@ -178,6 +192,11 @@
     }
 
     function wireMobileDesktopSidebar() {
+        if (document.documentElement.classList.contains("desktop-phone-view")) {
+            document.body.classList.remove("mobile-sidebar-closed");
+            return;
+        }
+
         const toggle = document.getElementById("kt_app_sidebar_mobile_toggle");
         const sidebar = document.getElementById("kt_app_sidebar");
         if (!toggle || !sidebar) {
