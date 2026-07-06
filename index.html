@@ -5,58 +5,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AlfaEgy Portal</title>
     <link rel="shortcut icon" href="assets/logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link href="plugins.bundle.css" rel="stylesheet" type="text/css">
-    <link href="https://portal.alfaegy.com/backend/css/style.bundle.css?v=1" rel="stylesheet" type="text/css">
-    <link href="https://portal.alfaegy.com/backend/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css">
-    <link href="https://portal.alfaegy.com/backend/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
-    <link rel="preload" as="style" href="https://portal.alfaegy.com/build/assets/app-e238e492.css">
-    <link rel="stylesheet" href="https://portal.alfaegy.com/build/assets/app-e238e492.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Noto Kufi Arabic", Arial, sans-serif;
+            background: #f5f7fb;
+            color: #181c32;
+        }
+
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+        }
+
+        .login-card {
+            width: min(500px, 100%);
+            padding: 28px;
+            border: 1px solid #ddd;
+            border-radius: 16px;
+            background: #fff;
+        }
+
+        .login-logo {
+            display: block;
+            width: 150px;
+            max-width: 55%;
+            margin: 0 auto 20px;
+        }
+
+        .login-title {
+            margin: 0 0 6px;
+            text-align: center;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .login-subtitle {
+            margin-bottom: 24px;
+            text-align: center;
+            color: #99a1b7;
+            font-weight: 600;
+        }
+
+        .login-field {
+            margin-bottom: 16px;
+        }
+
+        .login-input {
+            display: block;
+            width: 100%;
+            min-height: 54px;
+            padding: 13px 16px;
+            border: 1px solid #e1e5ee;
+            border-radius: 8px;
+            background: #fff;
+            color: #181c32;
+            font: inherit;
+            font-size: 16px;
+            line-height: 1.4;
+            pointer-events: auto;
+            -webkit-user-select: text;
+            user-select: text;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .login-input:focus {
+            outline: 0;
+            border-color: #009ef7;
+            box-shadow: 0 0 0 3px rgba(0, 158, 247, .12);
+        }
+
+        .forgot-row {
+            display: flex;
+            justify-content: flex-end;
+            margin: 4px 0 22px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .forgot-row a {
+            color: #009ef7;
+            text-decoration: none;
+        }
+
+        .login-button {
+            width: 100%;
+            min-height: 48px;
+            border: 0;
+            border-radius: 8px;
+            background: #009ef7;
+            color: #fff;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .login-notice {
+            display: none;
+            margin-top: 16px;
+            text-align: center;
+            color: #d9214e;
+            font-weight: 700;
+        }
+
+        @media (max-width: 540px) {
+            .login-page {
+                align-items: flex-start;
+                padding-top: 44px;
+            }
+
+            .login-card {
+                padding: 22px 18px;
+                border-radius: 14px;
+            }
+
+            .login-title {
+                font-size: 22px;
+            }
+        }
+    </style>
 </head>
-<body id="kt_body" class="app-blank bgi-size-cover bgi-attachment-fixed bgi-position-center bgi-no-repeat">
-    <div class="d-flex flex-column flex-root" id="kt_app_root">
-        <div class="d-flex flex-column justify-content-center align-items-center flex-lg-row" style="margin-top: 11rem">
-            <div class="bg-body d-flex rounded-4 w-md-500px p-xl-20 p-10 pb-xl-5 pb-3 pt-xl-5 pt-3" style="border:1px solid #ddd">
-                <form class="form w-100" id="loginForm" action="dashboard.html" method="get">
-                    <a href="#">
-                        <img src="assets/logo.png" class="img-fluid w-150px mx-auto d-block mb-5" alt="">
-                    </a>
+<body>
+    <div class="login-page">
+        <form class="login-card" id="loginForm" action="dashboard.html" method="get">
+            <img src="assets/logo.png" class="login-logo" alt="ALFA Egypt">
 
-                    <div class="text-center mb-5">
-                        <h1 class="text-dark fw-bolder mb-3">Login to your account</h1>
-                        <div class="text-gray-500 fw-semibold fs-6">Admin Panel</div>
-                    </div>
+            <h1 class="login-title">Login to your account</h1>
+            <div class="login-subtitle">Admin Panel</div>
 
-                    <div class="fv-row mb-8">
-                        <input type="text" placeholder="Username" required value="" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" class="form-control bg-transparent">
-                    </div>
-
-                    <div class="fv-row mb-3">
-                        <input type="password" placeholder="Password" required name="password" autocomplete="current-password" autocapitalize="none" spellcheck="false" class="form-control bg-transparent">
-                    </div>
-
-                    <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-                        <div></div>
-                        <a href="forgot-password.html" class="link-primary">Forgot Password ?</a>
-                    </div>
-
-                    <div class="d-grid mb-10">
-                        <button type="submit" class="btn btn-sm btn-primary">
-                            <span class="indicator-label">Sign In</span>
-                            <span class="indicator-progress">Please wait...
-                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-                            </span>
-                        </button>
-                    </div>
-                    <div id="loginNotice" class="text-center fw-semibold fs-6" style="display:none;color:#d9214e"></div>
-                </form>
+            <div class="login-field">
+                <input type="text" placeholder="Username" required value="" name="username" autocomplete="username" autocapitalize="none" spellcheck="false" class="login-input">
             </div>
-        </div>
+
+            <div class="login-field">
+                <input type="password" placeholder="Password" required name="password" autocomplete="current-password" autocapitalize="none" spellcheck="false" class="login-input">
+            </div>
+
+            <div class="forgot-row">
+                <a href="forgot-password.html">Forgot Password ?</a>
+            </div>
+
+            <button type="submit" class="login-button">Sign In</button>
+            <div id="loginNotice" class="login-notice"></div>
+        </form>
     </div>
 <script src="auth.js"></script>
 <script>
