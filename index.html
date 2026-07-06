@@ -91,6 +91,11 @@
             box-shadow: 0 0 0 3px rgba(0, 158, 247, .12);
         }
 
+        .password-mask {
+            -webkit-text-security: disc;
+            text-security: disc;
+        }
+
         .forgot-row {
             display: flex;
             justify-content: flex-end;
@@ -156,7 +161,7 @@
             </div>
 
             <div class="login-field">
-                <input type="password" placeholder="Password" required name="password" autocomplete="current-password" autocapitalize="none" spellcheck="false" class="login-input">
+                <input type="text" placeholder="Password" required name="password" autocomplete="off" autocapitalize="none" autocorrect="off" inputmode="text" spellcheck="false" class="login-input password-mask">
             </div>
 
             <div class="forgot-row">
