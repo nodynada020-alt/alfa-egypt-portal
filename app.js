@@ -24,10 +24,28 @@
 
         const viewport = document.querySelector('meta[name="viewport"]');
         if (viewport) {
-            viewport.setAttribute("content", "width=1200, initial-scale=0.32, minimum-scale=0.25, maximum-scale=1.2, user-scalable=yes");
+            viewport.setAttribute("content", "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no");
         }
 
         document.documentElement.classList.add("desktop-phone-view");
+
+        const applyScale = () => {
+            const baseWidth = 1200;
+            const scale = Math.min(window.innerWidth / baseWidth, 1);
+            document.documentElement.style.setProperty("--desktop-phone-scale", String(scale));
+
+            const root = document.getElementById("kt_app_root");
+            if (root) {
+                document.body.style.minHeight = `${Math.ceil(root.scrollHeight * scale)}px`;
+            }
+        };
+
+        applyScale();
+        window.addEventListener("resize", applyScale);
+        window.addEventListener("orientationchange", () => setTimeout(applyScale, 250));
+        window.addEventListener("load", applyScale);
+        setTimeout(applyScale, 300);
+        setTimeout(applyScale, 1200);
     }
 
     document.querySelectorAll('a[href="#"], a[href="javascript:;"]').forEach((link) => {
