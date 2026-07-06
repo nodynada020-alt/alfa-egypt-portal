@@ -3,6 +3,76 @@ body {
     font-family: "Noto Kufi Arabic", sans-serif !important;
 }
 
+@media (max-width: 991.98px) {
+    html.desktop-phone-view,
+    html.desktop-phone-view body {
+        width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+        background: #f5f8fa !important;
+    }
+
+    html.desktop-phone-view body.app-default {
+        width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    html.desktop-phone-view #kt_app_root {
+        width: 1200px !important;
+        min-width: 1200px !important;
+        max-width: none !important;
+        transform: scale(var(--desktop-phone-scale, .32)) !important;
+        transform-origin: top left !important;
+        overflow: visible !important;
+    }
+
+    html.desktop-phone-view #kt_app_page,
+    html.desktop-phone-view #kt_app_wrapper {
+        width: 1200px !important;
+        min-width: 1200px !important;
+        max-width: none !important;
+    }
+
+    html.desktop-phone-view #kt_app_header {
+        left: 265px !important;
+        right: 0 !important;
+        width: auto !important;
+        min-width: 935px !important;
+    }
+
+    html.desktop-phone-view #kt_app_sidebar {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 265px !important;
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: flex !important;
+        box-shadow: none !important;
+    }
+
+    html.desktop-phone-view #kt_app_wrapper {
+        margin-left: 265px !important;
+        padding-left: 0 !important;
+    }
+
+    html.desktop-phone-view .app-main,
+    html.desktop-phone-view #kt_app_content,
+    html.desktop-phone-view #kt_app_content_container {
+        min-width: 935px !important;
+        max-width: none !important;
+    }
+
+    html.desktop-phone-view #kt_app_sidebar_mobile_toggle,
+    html.desktop-phone-view .d-lg-none,
+    html.desktop-phone-view body::before {
+        display: none !important;
+    }
+}
+
 .bi,
 .ki-duotone {
     display: inline-flex;
@@ -195,6 +265,23 @@ body {
 }
 
 @media (max-width: 991.98px) {
+    html.desktop-phone-view,
+    html.desktop-phone-view body {
+        min-width: 1200px;
+        overflow-x: hidden;
+        background: #f5f8fa;
+    }
+
+    html.desktop-phone-view body.app-default #kt_app_sidebar {
+        transform: translateX(0) !important;
+        box-shadow: none !important;
+    }
+
+    html.desktop-phone-view body.app-default .d-lg-none,
+    html.desktop-phone-view body:not(.mobile-sidebar-closed)::before {
+        display: none !important;
+    }
+
     body.app-default {
         min-width: 1200px;
         overflow-x: auto;
@@ -285,5 +372,75 @@ body {
         background: #fff;
         border-radius: 8px;
         box-shadow: 0 8px 20px rgba(24, 28, 50, .08);
+    }
+}
+
+@media (max-width: 991.98px) {
+    html.desktop-phone-view,
+    html.desktop-phone-view body {
+        width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+        background: #f5f8fa !important;
+    }
+
+    html.desktop-phone-view body.app-default {
+        width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    html.desktop-phone-view #kt_app_root {
+        width: 1200px !important;
+        min-width: 1200px !important;
+        max-width: none !important;
+        transform: scale(var(--desktop-phone-scale, .32)) !important;
+        transform-origin: top left !important;
+        overflow: visible !important;
+    }
+
+    html.desktop-phone-view #kt_app_page,
+    html.desktop-phone-view #kt_app_wrapper {
+        width: 1200px !important;
+        min-width: 1200px !important;
+        max-width: none !important;
+    }
+
+    html.desktop-phone-view #kt_app_header {
+        left: 265px !important;
+        right: 0 !important;
+        width: auto !important;
+        min-width: 935px !important;
+    }
+
+    html.desktop-phone-view #kt_app_sidebar {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: 265px !important;
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        display: flex !important;
+        box-shadow: none !important;
+    }
+
+    html.desktop-phone-view #kt_app_wrapper {
+        margin-left: 265px !important;
+        padding-left: 0 !important;
+    }
+
+    html.desktop-phone-view .app-main,
+    html.desktop-phone-view #kt_app_content,
+    html.desktop-phone-view #kt_app_content_container {
+        min-width: 935px !important;
+        max-width: none !important;
+    }
+
+    html.desktop-phone-view #kt_app_sidebar_mobile_toggle,
+    html.desktop-phone-view .d-lg-none,
+    html.desktop-phone-view body::before {
+        display: none !important;
     }
 }
